@@ -13,6 +13,7 @@ const myArray = {
   support_type: "",
   depth: "",
 };
+
 const myArray2 = {
   fKPLocation: "",
   style: "",
@@ -21,7 +22,6 @@ const myArray2 = {
 
 export default function Home() {
   // Stores the Selected Values
-
   const [selectedValues, setSelectedValues] = useState(myArray);
   const [selectedMultipleValues, setSelectedMultipleValues] =
     useState(myArray2);
@@ -78,7 +78,8 @@ export default function Home() {
   };
 
   // Submits the selected Values
-  const printData = () => {
+  const formSubmissionHandler = (e) => {
+    e.preventDefault();
     console.log("print", selectedValues);
     console.log("print2", selectedMultipleValues);
   };
@@ -139,7 +140,12 @@ export default function Home() {
         </div>
 
         {/* Action Buttons */}
-        <Button resetHandler={resetHandler} printData={printData} />
+        <form onSubmit={formSubmissionHandler}>
+          <div className="flex justify-center items-center p-4 gap-4">
+            <button onClick={resetHandler} className="border border-[#17569A] text-[#17569A] px-[20px] py-[12px] w-[160px] rounded-[4px] font-bold">Reset All</button>
+            <button type="submit" className="border border-[#17569A] text-white bg-[#17569A] px-[20px] py-[12px] w-[160px] rounded-[4px] font-bold">Save All</button>
+          </div>
+        </form>
       </div>
     </div>
   );

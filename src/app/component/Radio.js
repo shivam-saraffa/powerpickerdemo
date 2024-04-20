@@ -1,5 +1,4 @@
-"use client";
-
+"use client"
 export default function Radio({ m, sendVal, data1 }) {
   return (
     <div className="flex flex-col gap-2" type={m[1].type} key={m[1].key}>
